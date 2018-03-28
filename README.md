@@ -34,8 +34,7 @@
 ## CONFIGURACAO DO ESLINT NO SUBLIME 3
 1. Rodar "npm install -g eslint" na pasta raiz do projeto
 2. Instalar o package control
-3. Rodar  "npm install --save-dev eslint-config-rallycoding" na pasta raiz do projeto
-4. Instalar SublimeLinter no sublime text 3
-5. Instalar SublimeLinter-eslint no sublime text 3
+3. Instalar SublimeLinter no sublime text 3
+4. Instalar SublimeLinter-eslint no sublime text 3
 
 
