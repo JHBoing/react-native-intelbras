@@ -17,9 +17,9 @@
 	- Android Virtual Device
 7. Abrir novamente o android studio e selecionar a opção de abrir um projeto ja existente
 8. Navegar até a pasta do projeto e abrir o projeto selecionando "android"
-	https://i.imgur.com/uJk7K8o.png
+	- https://i.imgur.com/uJk7K8o.png
 9. Corrigir os erros apresentados pelo Android Studio
-	https://i.imgur.com/a9z9TZL.png
+	- https://i.imgur.com/a9z9TZL.png
 10. Acessar o AVD Manager através da aba Tools (Tools>AVD Manager)
 11. Criar um novo Virtual Device (Nexus 5) com Android versão Marshmallow ABI x86_x64 Android 6.0 (Google APIs) API Level 23
 	- https://i.imgur.com/PSQdQhU.png
