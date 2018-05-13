@@ -4,7 +4,7 @@ import { AppRegistry } from 'react-native';
 import Header from './components/header';
 
 const App = () => (
-    <Header />
+    <Header headerText={"Intelbras"} />
 );
 
 export default App;
