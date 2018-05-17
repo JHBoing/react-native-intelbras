@@ -3,8 +3,8 @@ import { Text, View } from 'react-native';
 
 const Header = (props) => {
 	const { 
-                textStyle,
-                viewStyle
+            textStyle,
+            viewStyle
         } = styles;
 
 	return (
