@@ -14,11 +14,15 @@ class NovoEquipamento extends React.Component {
             <View style={ styles.container }>
                 <View>
                     <Text>Nome</Text>
-                    <Text>------</Text>
-                    <Text>Telefone</Text>
-                    <Text>-------</Text>
-                    <Text>Endereço</Text>
-                    <Text>-------</Text>
+                    <Text>_________</Text>
+                    <Text>Tipo</Text>
+                    <Text>_________</Text>
+                    <Text>Modelo</Text>
+                    <Text>_________</Text>
+                    <Text>Endereço IP</Text>
+                    <Text>_________</Text>
+                    <Text>Comentario</Text>
+                    <Text>_________</Text>
                 </View>
                 <View>
                     <Button

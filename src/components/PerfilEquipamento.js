@@ -10,15 +10,27 @@ class PerfilEquipamento extends React.Component {
     
     render() {
         return (
-        <View style={{backgroundColor: '#FFFFFF'}}>
+        <View style={{backgroundColor: '#FFFFFF', flex: 1}}>
             <View style={ styles.container }>
                 <View>
-                    <Text> Telefone </Text>
-                    <Text> NumeroTelefoneComoProps </Text>
+                    <Text> Nome </Text>
+                    <Text> nomeEquipamentoComoProps </Text>
                 </View>
                 <View>
-                    <Text> Endereço </Text>
-                    <Text> EndereçoComoProps </Text>
+                    <Text> Tipo </Text>
+                    <Text> TipoComoProps </Text>
+                </View>
+                <View>
+                    <Text> Modelo </Text>
+                    <Text> ModeloComoProps </Text>
+                </View>
+                <View>
+                    <Text> Endereço IP </Text>
+                    <Text> EndereçoIPComoProps </Text>
+                </View>
+                <View>
+                    <Text> Comentario </Text>
+                    <Text> ComentarioComoProps </Text>
                 </View>
             </View>
         </View>
@@ -28,11 +40,10 @@ class PerfilEquipamento extends React.Component {
 
 const styles = StyleSheet.create ({ 
     container: {
-        flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: 'white',
-        height: 60,
+        flex: 1
     },
     button: {
         width: 100,
