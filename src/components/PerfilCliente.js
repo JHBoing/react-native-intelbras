@@ -2,28 +2,38 @@ import React from 'react';
 import { StyleSheet, Button, View, Text } from 'react-native';
 
 
-class HomeScreen extends React.Component {
+class PerfilCliente extends React.Component {
 
     static navigationOptions = {
-        headerTitle: 'Intelbras',
+        headerTitle: 'nomeClienteComoProps',
     };
     
     render() {
         return (
         <View style={{backgroundColor: '#FFFFFF'}}>
             <View style={ styles.container }>
-                <Text>Lista de Clientes</Text>
+                <View>
+                    <Text> Telefone </Text>
+                    <Text> NumeroTelefoneComoProps </Text>
+                </View>
+                <View>
+                    <Text> Endereço </Text>
+                    <Text> EndereçoComoProps </Text>
+                </View>
+            </View>
+            <View style={ styles.container }>
+                <Text>Lista de equipamentos:</Text>
                 <Button
                     title="+"
-                    onPress={() => this.props.navigation.navigate('CadastroCliente')}
+                    onPress={() => this.props.navigation.navigate('CadastroEquipamento')}
                     style={ styles.button }
                 />
             </View>
             <View style={ styles.container }>
-                <Text>Perfil Cliente</Text>
+                <Text>Perfil Equipamento</Text>
                 <Button
                     title="----->"
-                    onPress={() => this.props.navigation.navigate('Cliente')}
+                    onPress={() => this.props.navigation.navigate('Equipamento')}
                     style={ styles.button }
                 />
             </View>
@@ -46,5 +56,5 @@ const styles = StyleSheet.create ({
     }
 });
 
-export default HomeScreen;
+export default PerfilCliente;
 

@@ -3,11 +3,17 @@ import { AppRegistry } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import HomeScreen from './components/HomeScreen';
-import DetailsScreen from './components/DetailsScreen';
+import PerfilCliente from './components/PerfilCliente';
+import NovoCliente from './components/NovoCliente';
+import NovoEquipamento from './components/NovoEquipamento';
+import PerfilEquipamento from './components/PerfilEquipamento';
 
 const RootStack = createStackNavigator ({
     Home: HomeScreen,
-    Details: DetailsScreen,
+    CadastroCliente: NovoCliente,
+    Cliente: PerfilCliente,
+    CadastroEquipamento: NovoEquipamento,
+    Equipamento: PerfilEquipamento
 });
 
 export default class App extends React.Component {
