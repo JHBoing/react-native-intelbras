@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, View, Text } from 'react-native';
+import { StyleSheet, Button, View, Text, TextInput, AsyncStorage, Alert } from 'react-native';
 
 
 class NovoCliente extends React.Component {
@@ -7,23 +7,43 @@ class NovoCliente extends React.Component {
     static navigationOptions = {
         headerTitle: 'Novo Cliente',
     };
-    
+
+    save = () => {
+        var { navigation } = this.props;
+        var clientes = navigation.getParam('clientes');
+        var refreshHomeScreen = navigation.getParam('refreshHomeScreen');
+
+        var novoCliente = {
+            nome: this.state.nome,
+            telefone: this.state.telefone,
+            endereco: this.state.endereco
+        };
+
+        clientes.push(novoCliente);
+        AsyncStorage.setItem('clientes', JSON.stringify(clientes));
+        refreshHomeScreen(clientes);
+        navigation.goBack();
+    }
+
     render() {
+        const { navigation } = this.props;
+        const clientes = navigation.getParam('clientes');
+
         return (
         <View style={{backgroundColor: '#FFFFFF', flex: 1}}>
             <View style={ styles.container }>
                 <View>
                     <Text>Nome</Text>
-                    <Text>------</Text>
+                    <TextInput onChangeText={(text) => this.setState({nome: text})} />
                     <Text>Telefone</Text>
-                    <Text>-------</Text>
+                    <TextInput onChangeText={(text) => this.setState({telefone: text})}/>
                     <Text>Endereço</Text>
-                    <Text>-------</Text>
+                    <TextInput onChangeText={(text) => this.setState({endereco: text})} autoCapitalize = 'none'/>
                 </View>
                 <View>
                     <Button
                         title="Salvar"
-                        onPress={() => this.props.navigation.goBack()}
+                        onPress={ this.save }
                         style={ styles.button }
                     />
                 </View>
@@ -41,9 +61,10 @@ const styles = StyleSheet.create ({
         flex: 1
     },
     button: {
+        backgroundColor: '#27BDBE',
         width: 100,
         height: 50,
-    }
+    },
 });
 
 export default NovoCliente;
