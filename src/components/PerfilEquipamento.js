@@ -7,30 +7,55 @@ class PerfilEquipamento extends React.Component {
     static navigationOptions = {
         headerTitle: 'nomeEquipamentoComoProps',
     };
+
+    removerEquipamento = () => {
+        // Pegar lista de clientes, o cliente, pra pegar o equipamento, remover do array, 
+        // devolver pro cliente, e devolver o cliente pra lista, e salvar no AsyncStorage
+        // igual no removerCliente() e depois dar refresh no PerfilCliente
+    }
     
     render() {
+        var { navigation } = this.props;
+        var idEquipamento = navigation.getParam('idEquipamento');
+        var listaEquipamentos = navigation.getParam('listaEquipamentos');
+        var equipamento = listaEquipamentos[idEquipamento];
+
         return (
         <View style={{backgroundColor: '#FFFFFF', flex: 1}}>
+            <View style={ styles.buttons }>
+                <Text 
+                style={ styles.buttonExcluir }
+                onPress={ this.removerEquipamento }>
+                    Excluir
+                </Text>
+                <Text
+                style={ styles.buttonEditar }
+                /*onPress={() => this.props.navigation.navigate('CadastroEquipamento', 
+                    {idCliente: idCliente, listaClientes: listaClientes, refreshPerfilCliente: this.refresh})}*/
+                >
+                Editar
+                </Text>
+            </View>
             <View style={ styles.container }>
                 <View>
                     <Text> Nome </Text>
-                    <Text> nomeEquipamentoComoProps </Text>
+                    <Text> {equipamento.nome} </Text>
                 </View>
                 <View>
                     <Text> Tipo </Text>
-                    <Text> TipoComoProps </Text>
+                    <Text> {equipamento.tipo} </Text>
                 </View>
                 <View>
                     <Text> Modelo </Text>
-                    <Text> ModeloComoProps </Text>
+                    <Text> {equipamento.modelo} </Text>
                 </View>
                 <View>
                     <Text> Endereço IP </Text>
-                    <Text> EndereçoIPComoProps </Text>
+                    <Text> {equipamento.ip} </Text>
                 </View>
                 <View>
                     <Text> Comentario </Text>
-                    <Text> ComentarioComoProps </Text>
+                    <Text> {equipamento.comentario} </Text>
                 </View>
             </View>
         </View>
@@ -48,7 +73,29 @@ const styles = StyleSheet.create ({
     button: {
         width: 100,
         height: 50,
-    }
+    },
+    buttons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    buttonExcluir: {
+        backgroundColor: '#D72736',
+        height: 50,
+        width: '50%',
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        marginBottom: 10,
+        fontSize: 20
+    },
+    buttonEditar: {
+        backgroundColor: '#27BDBE',
+        height: 50,
+        width: '50%',
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        marginBottom: 10,
+        fontSize: 20
+    },
 });
 
 export default PerfilEquipamento;

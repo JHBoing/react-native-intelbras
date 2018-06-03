@@ -8,14 +8,12 @@ class EquipamentoButton extends React.Component {
         var idEquipamento = this.props.id;
         var listaEquipamentos = this.props.listaEquipamentos;
         var equipamento = listaEquipamentos[idEquipamento];
-        /*
-        var refresh = this.props.refreshHomeScreen;
-        */
         return (
             <View>
                 <Text
 				style={styles.block}
-				/*onPress={() => this.props.navigation.navigate('Cliente', {id: idCliente, listaClientes: listaClientes, refreshHomeScreen: refresh})}*/
+				onPress={() => this.props.navigation.navigate('Equipamento', 
+                    {idEquipamento: idEquipamento, listaEquipamentos: listaEquipamentos})}
 				>
                 {equipamento.nome}
                 </Text>
