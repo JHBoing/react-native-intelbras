@@ -13,12 +13,16 @@ class NovoCliente extends React.Component {
         var clientes = navigation.getParam('clientes');
         var refreshHomeScreen = navigation.getParam('refreshHomeScreen');
 
+        if (!clientes){
+            clientes = [];
+        }
+
         var novoCliente = {
             nome: this.state.nome,
             telefone: this.state.telefone,
             endereco: this.state.endereco
         };
-
+        
         clientes.push(novoCliente);
         AsyncStorage.setItem('clientes', JSON.stringify(clientes));
         refreshHomeScreen(clientes);

@@ -16,7 +16,7 @@ class HomeScreen extends React.Component {
         try {
             var value = await AsyncStorage.getItem('clientes');
             if (!value) {
-                value = '';
+                value = [];
             }
             this.setState({clientes: JSON.parse(value)});
         } catch (error) {
@@ -34,10 +34,11 @@ class HomeScreen extends React.Component {
         return clientes.map((cliente, key) => {
             return (
                 <ClienteButton 
-                refreshHomeScreen={this.refresh}
-                listaClientes={clientes}
-                id={key}
-                navigation={this.props.navigation}
+                    refreshHomeScreen={this.refresh}
+                    listaClientes={clientes}
+                    id={key}
+                    nome={clientes[key].nome}
+                    navigation={this.props.navigation}
                 />
                 );
         });

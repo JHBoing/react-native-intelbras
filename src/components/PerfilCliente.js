@@ -6,28 +6,31 @@ import { StyleSheet, Button, View, Text, TextInput, AsyncStorage, Alert } from '
 
 class PerfilCliente extends React.Component {
 
-    static navigationOptions = {
-        headerTitle: 'nomeClienteComoProps',
-    };
-
+    static navigationOptions = ({ navigation }) => ({
+        title: `${navigation.state.params.title}`,
+        headerTitleStyle : {textAlign: 'center',alignSelf:'center'},
+        headerStyle:{
+            backgroundColor:'white',
+        },
+    });
     async componentWillMount() {
-        var { navigation } = this.props;
-        var idCliente = navigation.getParam('id');
-        var listaClientes = navigation.getParam('listaClientes');
-        var cliente = listaClientes[idCliente];
+        let { navigation } = this.props;
+        let idCliente = navigation.getParam('id');
+        let listaClientes = navigation.getParam('listaClientes');
+        let cliente = listaClientes[idCliente];
 
         this.setState({id: idCliente});
         this.setState({telefone: cliente.telefone});
         this.setState({endereco: cliente.endereco});
-        this.setState({listaClientes: listaClientes});
+        this.setState({listaClientes});
     }
 
     refresh = (equipamentos) => {
-        this.setState({equipamentos: equipamentos});
+        this.setState({equipamentos});
     } 
 
     removerCliente = () => {
-        var listaClientes = this.state.listaClientes;
+        let listaClientes = this.state.listaClientes;
         listaClientes.splice(this.state.id, 1);
         AsyncStorage.setItem('clientes', JSON.stringify(listaClientes));
         this.props.navigation.state.params.refreshHomeScreen(listaClientes);
@@ -35,10 +38,10 @@ class PerfilCliente extends React.Component {
     }
     
     listaEquipamentos() {
-        var { navigation } = this.props;
-        var idCliente = navigation.getParam('id');
-        var listaClientes = navigation.getParam('listaClientes');
-        var cliente = listaClientes[idCliente];
+        let { navigation } = this.props;
+        let idCliente = navigation.getParam('id');
+        let listaClientes = navigation.getParam('listaClientes');
+        let cliente = listaClientes[idCliente];
 
         if (!cliente || !cliente.hasOwnProperty('equipamentos')) return;
 
@@ -47,6 +50,7 @@ class PerfilCliente extends React.Component {
                 <EquipamentoButton 
                 listaEquipamentos={cliente.equipamentos}
                 id={key}
+                nome={cliente.equipamentos[key].nome}
                 navigation={this.props.navigation}
                 />
                 );
@@ -54,9 +58,9 @@ class PerfilCliente extends React.Component {
     }
 
     render() {
-        var { navigation } = this.props;
-        var idCliente = navigation.getParam('id');
-        var listaClientes = navigation.getParam('listaClientes');
+        let { navigation } = this.props;
+        let idCliente = navigation.getParam('id');
+        let listaClientes = navigation.getParam('listaClientes');
 
         return (
         <View style={{backgroundColor: '#FFFFFF'}}>
@@ -77,7 +81,7 @@ class PerfilCliente extends React.Component {
                 <Text
                 style={ styles.buttonNovoEquipamento }
                 onPress={() => this.props.navigation.navigate('CadastroEquipamento', 
-                    {idCliente: idCliente, listaClientes: listaClientes, refreshPerfilCliente: this.refresh})}
+                    {idCliente, listaClientes, refreshPerfilCliente: this.refresh})}
                 >
                 Novo equipamento
                 </Text>

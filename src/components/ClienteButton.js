@@ -9,12 +9,13 @@ class ClienteButton extends React.Component {
         var listaClientes = this.props.listaClientes;
         var cliente = listaClientes[idCliente];
         var refresh = this.props.refreshHomeScreen;
+        let nomeCliente = this.props.nome;
 
         return (
             <View>
                 <Text
 				style={styles.block}
-				onPress={() => this.props.navigation.navigate('Cliente', {id: idCliente, listaClientes: listaClientes, refreshHomeScreen: refresh})}
+				onPress={() => this.props.navigation.navigate('Cliente', {id: idCliente, listaClientes: listaClientes, refreshHomeScreen: refresh, title: nomeCliente  })}
 				>
                 {cliente.nome}
                 </Text>

@@ -1,24 +1,53 @@
 import React from 'react';
-import { StyleSheet, Button, View, Text } from 'react-native';
+import { StyleSheet, Button, View, Text, WebView, Linking } from 'react-native';
 
 
 class PerfilEquipamento extends React.Component {
 
-    static navigationOptions = {
-        headerTitle: 'nomeEquipamentoComoProps',
-    };
+    
+
+    static navigationOptions = ({ navigation }) => ({
+        title: `${navigation.state.params.title}`,
+        headerTitleStyle : {textAlign: 'center', alignSelf:'center'},
+        headerStyle:{
+            backgroundColor:'white',
+        },
+    });
+
+    async componentWillMount() {
+        let { navigation } = this.props;
+        let idEquipamento = navigation.getParam('idEquipamento');
+        let listaEquipamentos = navigation.getParam('listaEquipamentos');
+        let equipamento = listaEquipamentos[idEquipamento];
+
+        this.setState({ip :equipamento.ip});
+       
+    }
 
     removerEquipamento = () => {
         // Pegar lista de clientes, o cliente, pra pegar o equipamento, remover do array, 
         // devolver pro cliente, e devolver o cliente pra lista, e salvar no AsyncStorage
         // igual no removerCliente() e depois dar refresh no PerfilCliente
     }
-    
+    renderLink = () => {
+        Alert.alert('teste');
+        const ip = 'google.com'; 
+        
+        return (
+            <WebView
+                ref = {(ref) => {this.webview = ref; }}
+                source = {{ ip }}
+               
+            />   
+        );   
+    }
+
+
     render() {
-        var { navigation } = this.props;
-        var idEquipamento = navigation.getParam('idEquipamento');
-        var listaEquipamentos = navigation.getParam('listaEquipamentos');
-        var equipamento = listaEquipamentos[idEquipamento];
+        let { navigation } = this.props;
+        let idEquipamento = navigation.getParam('idEquipamento');
+        let listaEquipamentos = navigation.getParam('listaEquipamentos');
+        let equipamento = listaEquipamentos[idEquipamento];
 
         return (
         <View style={{backgroundColor: '#FFFFFF', flex: 1}}>
@@ -51,7 +80,8 @@ class PerfilEquipamento extends React.Component {
                 </View>
                 <View>
                     <Text> Endereço IP </Text>
-                    <Text> {equipamento.ip} </Text>
+                    <Text onPress={ () => this.props.navigation.navigate('IpWebView', 
+                    {ip:equipamento.ip}) } >  {equipamento.ip} </Text>
                 </View>
                 <View>
                     <Text> Comentario </Text>

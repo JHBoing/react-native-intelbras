@@ -5,15 +5,16 @@ import { Text, View, StyleSheet } from 'react-native';
 class EquipamentoButton extends React.Component {
 
     render() {
-        var idEquipamento = this.props.id;
-        var listaEquipamentos = this.props.listaEquipamentos;
-        var equipamento = listaEquipamentos[idEquipamento];
+        let idEquipamento = this.props.id;
+        let listaEquipamentos = this.props.listaEquipamentos;
+        let equipamento = listaEquipamentos[idEquipamento];
+        let nome = this.props.nome;
         return (
             <View>
                 <Text
 				style={styles.block}
 				onPress={() => this.props.navigation.navigate('Equipamento', 
-                    {idEquipamento: idEquipamento, listaEquipamentos: listaEquipamentos})}
+                    {idEquipamento, listaEquipamentos, title: nome})}
 				>
                 {equipamento.nome}
                 </Text>
