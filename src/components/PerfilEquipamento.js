@@ -4,8 +4,6 @@ import { StyleSheet, Button, View, Text, WebView, Linking } from 'react-native';
 
 class PerfilEquipamento extends React.Component {
 
-    
-
     static navigationOptions = ({ navigation }) => ({
         title: `${navigation.state.params.title}`,
         headerTitleStyle : {textAlign: 'center', alignSelf:'center'},
@@ -41,7 +39,6 @@ class PerfilEquipamento extends React.Component {
             />   
         );   
     }
-
 
     render() {
         let { navigation } = this.props;
