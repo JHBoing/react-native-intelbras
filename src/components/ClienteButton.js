@@ -5,10 +5,10 @@ import { Text, View, StyleSheet } from 'react-native';
 class ClienteButton extends React.Component {
 
     render() {
-        var idCliente = this.props.id;
-        var listaClientes = this.props.listaClientes;
-        var cliente = listaClientes[idCliente];
-        var refresh = this.props.refreshHomeScreen;
+        let idCliente = this.props.id;
+        let listaClientes = this.props.listaClientes;
+        let cliente = listaClientes[idCliente];
+        let refresh = this.props.refreshHomeScreen;
         let nomeCliente = this.props.nome;
 
         return (

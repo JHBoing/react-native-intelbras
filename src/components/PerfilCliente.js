@@ -53,7 +53,7 @@ class PerfilCliente extends React.Component {
                 nome={cliente.equipamentos[key].nome}
                 navigation={this.props.navigation}
                 />
-                );
+            );
         });
     }
 
