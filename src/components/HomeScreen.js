@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
         this.setState({clientes: ''});
 
         try {
-            var value = await AsyncStorage.getItem('clientes');
+            let value = await AsyncStorage.getItem('clientes');
             if (!value) {
                 value = [];
             }
@@ -29,7 +29,7 @@ class HomeScreen extends React.Component {
     }
 
     listaClientes() {
-        var clientes = this.state.clientes;
+        let clientes = this.state.clientes;
         if (!clientes) return;
         return clientes.map((cliente, key) => {
             return (
@@ -40,7 +40,7 @@ class HomeScreen extends React.Component {
                     nome={clientes[key].nome}
                     navigation={this.props.navigation}
                 />
-                );
+            );
         });
     }
   

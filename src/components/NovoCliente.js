@@ -17,7 +17,7 @@ class NovoCliente extends React.Component {
             clientes = [];
         }
 
-        var novoCliente = {
+        let novoCliente = {
             nome: this.state.nome,
             telefone: this.state.telefone,
             endereco: this.state.endereco
