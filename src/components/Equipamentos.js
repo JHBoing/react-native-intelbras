@@ -28,8 +28,9 @@ class Equipamentos extends React.Component {
         if (!clientes) return;
         return clientes.map((cliente, key) => {
             return cliente.equipamentos.map((equipamento, key) => {
-                return (<EquipamentoClienteButton
-                    equipamento = {equipamento}
+                return (
+                <EquipamentoClienteButton
+                    clienteEquipamentos = {cliente.equipamentos}
                     id={key}
                     nome={cliente.nome}
                     navigation={this.props.navigation}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';  
 import { Text, View, StyleSheet, Alert } from 'react-native';
 
 
@@ -10,14 +10,15 @@ class EquipamentoClienteButton extends React.Component {
     render() {
         let idEquipamento = this.props.id;
         let nomeCliente = this.props.nome;
-        let equipamento = this.props.equipamento;
-        
+        let clienteEquipamentos = this.props.clienteEquipamentos;
+        let equipamento = clienteEquipamentos[idEquipamento];
+
         return (
             <View>
                 <Text
                 style={styles.block}
-                onPress={() => this.props.navigation.navigate('PerfilEquipamentos',
-                    {idEquipamento, equipamento, title: equipamento.nome})}
+                onPress={() => this.props.navigation.navigate('Equipamento',
+                    {idEquipamento, listaEquipamentos: clienteEquipamentos, title: equipamento.nome})}
 				>
                 {equipamento.nome}- Cliente: {nomeCliente}
                 </Text>
