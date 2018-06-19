@@ -95,6 +95,7 @@ const styles = StyleSheet.create ({
         justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: 'white',
+        textAlign: 'left',
         flex: 1
     },
     button: {
