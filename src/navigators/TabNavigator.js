@@ -9,9 +9,17 @@ const EquipamentosStackNavigator = StackNavigator ({
 
 });
 
-const TabNavigator = createBottomTabNavigator({
-    Clientes: RootStackNavigator,
-    Equipamentos: EquipamentosStackNavigator 
-});
-
+const TabNavigator = createBottomTabNavigator(
+    {
+        Clientes: RootStackNavigator,
+        Equipamentos: EquipamentosStackNavigator 
+    },
+    {
+        tabBarOptions: {
+            labelStyle: {
+                fontSize: 20
+            }
+        }
+    }
+);
 export default TabNavigator;

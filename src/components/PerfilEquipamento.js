@@ -62,27 +62,34 @@ class PerfilEquipamento extends React.Component {
                 Editar
                 </Text>
             </View>
+
+               
+
             <View style={ styles.container }>
-                <View>
-                    <Text> Nome </Text>
-                    <Text> {equipamento.nome} </Text>
+                <View style={ styles.itemBlock }>
+                    <Text style={ styles.itemsTitle }> Nome: </Text>
+                    <Text style={ styles.itemsInfo }> {equipamento.nome} </Text>
+                     <View style={ styles.itemBlock }>
+                    <Text style={ styles.itemsTitle }> Nome: </Text>
+                    <Text style={ styles.itemsInfo }> {equipamento.nome} </Text>
                 </View>
-                <View>
-                    <Text> Tipo </Text>
-                    <Text> {equipamento.tipo} </Text>
                 </View>
-                <View>
-                    <Text> Modelo </Text>
-                    <Text> {equipamento.modelo} </Text>
+                <View style={ styles.itemBlock }>
+                    <Text style={ styles.itemsTitle }> Tipo: </Text>
+                    <Text style={ styles.itemsInfo }> {equipamento.tipo} </Text>
                 </View>
-                <View>
-                    <Text> Endereço IP </Text>
+                <View style={ styles.itemBlock }>
+                    <Text style={ styles.itemsTitle }> Modelo: </Text>
+                    <Text style={ styles.itemsInfo }> {equipamento.modelo} </Text>
+                </View>
+                <View style={ styles.itemBlock }>
+                    <Text style={ styles.itemsTitle }> Endereço IP: </Text>
                     <Text onPress={ () => this.props.navigation.navigate('IpWebView', 
                     {ip:equipamento.ip}) } >  {equipamento.ip} </Text>
                 </View>
-                <View>
-                    <Text> Comentario </Text>
-                    <Text> {equipamento.comentario} </Text>
+                <View style={ styles.itemBlock }>
+                    <Text style={ styles.itemsTitle }> Comentario: </Text>
+                    <Text style={ styles.itemsInfo }> {equipamento.comentario} </Text>
                 </View>
             </View>
         </View>
@@ -91,16 +98,35 @@ class PerfilEquipamento extends React.Component {
 }
 
 const styles = StyleSheet.create ({ 
+        
+    itemBlock: {
+          backgroundColor: '#BBCAD2',
+          marginTop: 7,
+          marginBottom: 7,
+          alignItems: 'center',  
+          height: 60,
+
+    },
+    itemsTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+     },
+    itemsInfo: {
+        fontSize: 15,
+    },
+
+    /*
     container: {
-        justifyContent: 'space-around',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         backgroundColor: 'white',
-        textAlign: 'left',
         flex: 1
     },
+    */
     button: {
         width: 100,
         height: 50,
+
     },
     buttons: {
         flexDirection: 'row',
@@ -114,6 +140,7 @@ const styles = StyleSheet.create ({
         textAlignVertical: 'center',
         marginBottom: 10,
         fontSize: 20
+        
     },
     buttonEditar: {
         backgroundColor: '#27BDBE',
