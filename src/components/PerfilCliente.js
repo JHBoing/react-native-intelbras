@@ -1,4 +1,5 @@
 import React from 'react';
+import {Container, Header, Left, Body, Right, Title} from 'native-base';
 import NovoButton from './NovoButton';
 import EquipamentoButton from './EquipamentoButton';
 import { StyleSheet, Button, View, Text, TextInput, AsyncStorage, Alert } from 'react-native';
